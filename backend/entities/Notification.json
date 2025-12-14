@@ -1,0 +1,48 @@
+{
+  "name": "Notification",
+  "tableName": "notifications",
+  "fields": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "message": {
+      "type": "string",
+      "required": true
+    },
+    "type": {
+      "type": "string",
+      "enum": ["info", "success", "warning", "error"],
+      "default": "info"
+    },
+    "is_read": {
+      "type": "boolean",
+      "default": false
+    },
+    "for_admin": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "permissions": {
+    "read": {
+      "own": true,
+      "admin": true
+    },
+    "create": {
+      "authenticated": true
+    },
+    "update": {
+      "own": true,
+      "admin": true
+    },
+    "delete": {
+      "own": true,
+      "admin": true
+    },
+    "list": {
+      "own": true,
+      "admin": true
+    }
+  }
+}

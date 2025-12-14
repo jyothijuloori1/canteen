@@ -1,0 +1,83 @@
+{
+  "name": "Order",
+  "tableName": "orders",
+  "fields": {
+    "order_number": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "student_name": {
+      "type": "string",
+      "required": false
+    },
+    "student_contact": {
+      "type": "string",
+      "required": false
+    },
+    "items": {
+      "type": "json",
+      "required": true
+    },
+    "total_amount": {
+      "type": "number",
+      "required": true,
+      "minimum": 0
+    },
+    "payment_method": {
+      "type": "string",
+      "enum": ["Campus Wallet", "UPI", "Cash on Delivery"],
+      "required": true
+    },
+    "status": {
+      "type": "string",
+      "enum": ["Pending", "Preparing", "Ready", "Out for Delivery", "Delivered", "Cancelled", "Scheduled"],
+      "default": "Pending"
+    },
+    "is_scheduled": {
+      "type": "boolean",
+      "default": false
+    },
+    "scheduled_date": {
+      "type": "string",
+      "format": "date",
+      "required": false
+    },
+    "scheduled_time": {
+      "type": "string",
+      "required": false
+    },
+    "delivery_location": {
+      "type": "string",
+      "required": false
+    },
+    "delivery_eta": {
+      "type": "number",
+      "required": false
+    },
+    "qr_code": {
+      "type": "string",
+      "required": false
+    }
+  },
+  "permissions": {
+    "read": {
+      "own": true,
+      "admin": true
+    },
+    "create": {
+      "authenticated": true
+    },
+    "update": {
+      "own": false,
+      "admin": true
+    },
+    "delete": {
+      "admin": true
+    },
+    "list": {
+      "own": true,
+      "admin": true
+    }
+  }
+}

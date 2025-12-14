@@ -1,0 +1,47 @@
+{
+  "name": "TopUpRequest",
+  "tableName": "top_up_requests",
+  "fields": {
+    "amount": {
+      "type": "number",
+      "required": true,
+      "minimum": 1
+    },
+    "transaction_id": {
+      "type": "string",
+      "required": true
+    },
+    "status": {
+      "type": "string",
+      "enum": ["pending", "approved", "rejected"],
+      "default": "pending"
+    },
+    "screenshot_url": {
+      "type": "string",
+      "required": false
+    },
+    "admin_notes": {
+      "type": "string",
+      "required": false
+    }
+  },
+  "permissions": {
+    "read": {
+      "own": true,
+      "admin": true
+    },
+    "create": {
+      "authenticated": true
+    },
+    "update": {
+      "admin": true
+    },
+    "delete": {
+      "admin": true
+    },
+    "list": {
+      "own": true,
+      "admin": true
+    }
+  }
+}

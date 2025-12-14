@@ -1,0 +1,71 @@
+{
+  "name": "User",
+  "tableName": "users",
+  "fields": {
+    "email": {
+      "type": "string",
+      "required": true,
+      "unique": true,
+      "format": "email"
+    },
+    "password": {
+      "type": "string",
+      "required": true,
+      "minLength": 6,
+      "hidden": true
+    },
+    "full_name": {
+      "type": "string",
+      "required": true
+    },
+    "role": {
+      "type": "string",
+      "enum": ["student", "admin"],
+      "default": "student"
+    },
+    "roll_number": {
+      "type": "string",
+      "required": false
+    },
+    "year": {
+      "type": "string",
+      "required": false
+    },
+    "branch": {
+      "type": "string",
+      "required": false
+    },
+    "phone": {
+      "type": "string",
+      "required": false
+    },
+    "wallet_balance": {
+      "type": "number",
+      "default": 0,
+      "minimum": 0
+    },
+    "profile_complete": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "permissions": {
+    "read": {
+      "own": true,
+      "admin": true
+    },
+    "create": {
+      "public": true
+    },
+    "update": {
+      "own": true,
+      "admin": true
+    },
+    "delete": {
+      "admin": true
+    },
+    "list": {
+      "admin": true
+    }
+  }
+}

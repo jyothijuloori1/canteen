@@ -1,0 +1,35 @@
+{
+  "name": "PaymentSettings",
+  "tableName": "payment_settings",
+  "fields": {
+    "upi_id": {
+      "type": "string",
+      "required": false
+    },
+    "merchant_name": {
+      "type": "string",
+      "required": false
+    },
+    "bank_details": {
+      "type": "json",
+      "required": false
+    }
+  },
+  "permissions": {
+    "read": {
+      "authenticated": true
+    },
+    "create": {
+      "admin": true
+    },
+    "update": {
+      "admin": true
+    },
+    "delete": {
+      "admin": true
+    },
+    "list": {
+      "authenticated": true
+    }
+  }
+}

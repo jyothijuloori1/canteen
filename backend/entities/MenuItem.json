@@ -1,0 +1,53 @@
+{
+  "name": "MenuItem",
+  "tableName": "menu_items",
+  "fields": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "string",
+      "required": false
+    },
+    "price": {
+      "type": "number",
+      "required": true,
+      "minimum": 0
+    },
+    "category": {
+      "type": "string",
+      "enum": ["Breakfast", "Lunch", "Snacks", "Beverages", "Desserts"],
+      "required": true
+    },
+    "image_url": {
+      "type": "string",
+      "required": false
+    },
+    "is_special": {
+      "type": "boolean",
+      "default": false
+    },
+    "is_available": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "permissions": {
+    "read": {
+      "authenticated": true
+    },
+    "create": {
+      "admin": true
+    },
+    "update": {
+      "admin": true
+    },
+    "delete": {
+      "admin": true
+    },
+    "list": {
+      "authenticated": true
+    }
+  }
+}
